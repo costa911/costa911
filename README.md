@@ -22,11 +22,3 @@ Feel free to connect with me on LinkedIn or explore my projects here on GitHub. 
   </a>
 
 </div>
-
-<div align="center">
-  <h2>🐍 My Contributions 🐍</h2>
-  <br>
-  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/costa911/costa911/output/github-contribution-grid-snake.svg" />
-  
-  <br/><br/><br/>
-</div>
