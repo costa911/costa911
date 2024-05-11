@@ -2,10 +2,9 @@
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Costa!;" />
 </h1>
 
-![visitor badge](https://visitor-badge.laobi.icu/badge?page_id=costa911&left_color=red&right_color=green&left_text=HelloVisitors)
-
 <div align="center">
 
+![visitor badge](https://visitor-badge.laobi.icu/badge?page_id=costa911&left_color=red&right_color=green&left_text=HelloVisitors)
 
 ### About Me
 
