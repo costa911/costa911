@@ -8,12 +8,7 @@
 
 ### About Me
 
-I’m a real-time analyst, father of two, and a passionate volunteer at Siggiewi FC. Currently, I’m also pursuing my studies in Information Technology with the University of Derby.
-
-### Interests
-Network and Cyber Security: I’m fascinated by securing digital systems and protecting against cyber threats.
-
-Data & Software Engineering/Programming: I love building software solutions and exploring data-driven insights.
+I’m a data analyst and passionate sports fan, currently learning advanced data analysis techniques while exploring my fascination with cybersecurity.
 
 Feel free to connect with me on LinkedIn or explore my projects here on GitHub. Let’s learn and grow together! 😊🚀
 
