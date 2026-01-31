@@ -39,9 +39,5 @@ Feel free to connect with me on LinkedIn or explore my projects here on GitHub. 
 </a> 
 </p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=costa911&show_icons=true&locale=en" alt="costa911" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=costa911&" alt="costa911" /></p>
-
 </div>
 
