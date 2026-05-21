@@ -7,11 +7,17 @@ Turning data into stories. Building things. Breaking (and fixing) Linux boxes.
 
 <br>
 
-[![View Full Profile](https://img.shields.io/badge/🌆_VIEW_FULL_PROFILE-0a0014?style=for-the-badge&logoColor=ff2d78)](https://costa911.github.io)
+<a href="https://costa911.github.io/costa911" target="_blank">
+  <img src="https://img.shields.io/badge/🌆_VIEW_FULL_PROFILE-0a0014?style=for-the-badge&logoColor=ff2d78" />
+</a>
 
-<br>
+<br><br>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a0014?style=for-the-badge&logo=linkedin&logoColor=00e5ff)](https://www.linkedin.com/in/andrea-costa-98a2b554/)
-[![YouTube](https://img.shields.io/badge/YouTube-0a0014?style=for-the-badge&logo=youtube&logoColor=ff2d78)](https://youtube.com/@acosta911)
+<a href="https://www.linkedin.com/in/andrea-costa-98a2b554/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-0a0014?style=for-the-badge&logo=linkedin&logoColor=00e5ff" />
+</a>
+<a href="https://youtube.com/@acosta911" target="_blank">
+  <img src="https://img.shields.io/badge/YouTube-0a0014?style=for-the-badge&logo=youtube&logoColor=ff2d78" />
+</a>
 
 </div>
