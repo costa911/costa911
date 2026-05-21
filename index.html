@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costa · Data Analyst · Cyber Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0014;
+    --surface: #120020;
+    --pink: #ff2d78;
+    --cyan: #00e5ff;
+    --purple: #b400ff;
+    --yellow: #ffe600;
+    --text: #e0c8ff;
+    --dim: #6040a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Exo 2', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Grid floor ── */
+  .grid-floor {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55vh;
+    background:
+      linear-gradient(transparent 0%, rgba(180,0,255,0.07) 100%),
+      repeating-linear-gradient(90deg, rgba(180,0,255,0.08) 0px, transparent 1px, transparent 60px, rgba(180,0,255,0.08) 61px),
+      repeating-linear-gradient(0deg, rgba(180,0,255,0.08) 0px, transparent 1px, transparent 60px, rgba(180,0,255,0.08) 61px);
+    transform: perspective(400px) rotateX(55deg);
+    transform-origin: bottom;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Top glow ── */
+  .top-glow {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px;
+    height: 320px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(180,0,255,0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Stars ── */
+  #stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.9; }
+  }
+
+  /* ── Layout ── */
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeDown 0.6s ease 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(52px, 12vw, 96px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    line-height: 1;
+    background: linear-gradient(90deg, var(--pink), var(--cyan), var(--purple), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300%;
+    animation: gradientShift 5s ease infinite, fadeDown 0.7s ease 0.3s both;
+    filter: drop-shadow(0 0 40px rgba(255,45,120,0.4));
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .hero-sub {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(9px, 2vw, 12px);
+    letter-spacing: 6px;
+    color: var(--cyan);
+    margin-top: 18px;
+    text-shadow: 0 0 20px var(--cyan);
+    animation: pulse 2.5s ease-in-out infinite, fadeDown 0.7s ease 0.5s both;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hero-divider {
+    margin: 36px auto;
+    width: 240px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--cyan), transparent);
+    box-shadow: 0 0 12px var(--pink);
+    animation: fadeIn 0.7s ease 0.7s both;
+  }
+
+  /* ── Badges ── */
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    animation: fadeIn 0.7s ease 0.9s both;
+  }
+
+  .badge {
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 7px 16px;
+    border: 1px solid;
+    text-transform: uppercase;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .badge:hover { transform: translateY(-2px); }
+
+  .badge.p { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 10px rgba(0,229,255,0.25); }
+  .badge.s { border-color: var(--pink); color: var(--pink); box-shadow: 0 0 10px rgba(255,45,120,0.25); }
+  .badge.t { border-color: var(--purple); color: var(--purple); box-shadow: 0 0 10px rgba(180,0,255,0.25); }
+  .badge.y { border-color: var(--yellow); color: var(--yellow); box-shadow: 0 0 10px rgba(255,230,0,0.25); }
+
+  /* ── Section ── */
+  .section {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .s1 { animation-delay: 1.1s; }
+  .s2 { animation-delay: 1.25s; }
+  .s3 { animation-delay: 1.4s; }
+  .s4 { animation-delay: 1.55s; }
+  .s5 { animation-delay: 1.7s; }
+
+  /* ── Cards ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card-full { grid-column: span 1; }
+    .stats-row { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border: 1px solid rgba(180,0,255,0.25);
+    padding: 24px;
+    background: rgba(18,0,32,0.85);
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+  }
+
+  .card:hover {
+    border-color: rgba(0,229,255,0.4);
+    box-shadow: 0 0 30px rgba(0,229,255,0.08);
+    transform: translateY(-2px);
+  }
+
+  .card-full { grid-column: span 2; }
+
+  @media (max-width: 600px) {
+    .card-full { grid-column: span 1; }
+  }
+
+  .card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-shadow: 0 0 10px rgba(0,229,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .card-body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  .hl { color: var(--pink); font-weight: 600; }
+  .hl2 { color: var(--cyan); }
+
+  /* ── Skills ── */
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill {
+    font-size: 12px;
+    padding: 5px 13px;
+    border: 1px solid rgba(255,45,120,0.3);
+    background: rgba(255,45,120,0.08);
+    color: var(--pink);
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .skill:hover {
+    background: rgba(255,45,120,0.2);
+    box-shadow: 0 0 12px rgba(255,45,120,0.3);
+  }
+
+  .skill.b {
+    border-color: rgba(0,229,255,0.3);
+    background: rgba(0,229,255,0.08);
+    color: var(--cyan);
+  }
+
+  .skill.b:hover {
+    background: rgba(0,229,255,0.2);
+    box-shadow: 0 0 12px rgba(0,229,255,0.3);
+  }
+
+  .skill.c {
+    border-color: rgba(180,0,255,0.3);
+    background: rgba(180,0,255,0.08);
+    color: var(--purple);
+  }
+
+  .skill.c:hover {
+    background: rgba(180,0,255,0.2);
+    box-shadow: 0 0 12px rgba(180,0,255,0.3);
+  }
+
+  /* ── Stats ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stats-card {
+    border: 1px solid rgba(180,0,255,0.2);
+    overflow: hidden;
+    background: #0a0014;
+  }
+
+  .stats-card img { width: 100%; display: block; }
+
+  /* ── Connect ── */
+  .connect-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .connect-btn {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    padding: 13px 28px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .connect-btn.li {
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,229,255,0.15);
+  }
+
+  .connect-btn.li:hover {
+    background: var(--cyan);
+    color: var(--bg);
+    box-shadow: 0 0 40px rgba(0,229,255,0.4);
+  }
+
+  .connect-btn.yt {
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    box-shadow: 0 0 20px rgba(255,45,120,0.15);
+  }
+
+  .connect-btn.yt:hover {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 0 40px rgba(255,45,120,0.4);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(180,0,255,0.2);
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--dim);
+    line-height: 2;
+  }
+
+  .footer .gradient-text {
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-floor"></div>
+<div class="top-glow"></div>
+<div id="stars"></div>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">costa911.github.io</div>
+    <div class="hero-name">COSTA</div>
+    <div class="hero-sub">DATA ANALYST · CYBER EXPLORER · LINUX TINKERER</div>
+    <div class="hero-divider"></div>
+    <div class="badge-row">
+      <span class="badge p">Python</span>
+      <span class="badge p">SQL</span>
+      <span class="badge p">Looker</span>
+      <span class="badge s">TryHackMe</span>
+      <span class="badge t">Fedora</span>
+      <span class="badge t">Kali</span>
+      <span class="badge y">F1 🏎️</span>
+      <span class="badge y">⚒️ West Ham</span>
+      <span class="badge y">🍳 Cooking</span>
+    </div>
+  </div>
+
+  <!-- Who + Learning -->
+  <div class="section s1">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title">// WHO_AM_I</div>
+        <div class="card-body">
+          <span class="hl">IT Graduate</span> from the University of Derby. I turn messy operational data into dashboards that actually tell a story — Python pipelines, SQL deep-dives, and Looker by day.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">// CURRENTLY_LEARNING</div>
+        <div class="card-body">
+          🔐 <span class="hl2">Cybersecurity</span> via TryHackMe<br>
+          🤖 AI Fundamentals (Coursera)<br>
+          🌐 HTML / CSS (Codecademy)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stack -->
+  <div class="section s2">
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title">// STACK</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Data & Analytics</div>
+          <div class="skill-row">
+            <span class="skill">Python</span>
+            <span class="skill">SQL · Redshift</span>
+            <span class="skill">Looker</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Chart.js</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Web & Frontend</div>
+          <div class="skill-row">
+            <span class="skill b">HTML</span>
+            <span class="skill b">CSS</span>
+            <span class="skill b">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Systems & Security</div>
+          <div class="skill-row">
+            <span class="skill c">Linux · Fedora · AntiX · Kali</span>
+            <span class="skill c">Bash</span>
+            <span class="skill c">TryHackMe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="section s3">
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title">// GITHUB_STATS</div>
+        <div class="stats-row">
+          <div class="stats-card">
+            <img src="https://github-readme-stats.vercel.app/api?username=costa911&show_icons=true&theme=synthwave&hide_border=true&bg_color=0a0014" alt="GitHub Stats" />
+          </div>
+          <div class="stats-card">
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=costa911&theme=synthwave&hide_border=true&background=0a0014" alt="GitHub Streak" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connect -->
+  <div class="section s4">
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-title">// CONNECT</div>
+        <div class="connect-row">
+          <a href="https://www.linkedin.com/in/andrea-costa-98a2b554/" class="connect-btn li">LinkedIn</a>
+          <a href="https://youtube.com/@acosta911" class="connect-btn yt">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="gradient-text">COSTA · DATA · CYBER · CODE</div>
+    University of Derby · IT Graduate
+  </div>
+
+</div>
+
+<script>
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 100; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 70 + '%';
+    s.style.setProperty('--d', (2 + Math.random() * 5) + 's');
+    s.style.animationDelay = (Math.random() * 5) + 's';
+    s.style.opacity = Math.random() * 0.5;
+    stars.appendChild(s);
+  }
+</script>
+</body>
+</html>
