@@ -1,20 +1,40 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&center=true&vCenter=true&width=600&height=70&duration=4000&pause=1000&color=FF2D78&lines=Hey!+I'm+Costa+👋;Data+Analyst+%7C+Cyber+Explorer;Python+%7C+SQL+%7C+Linux+Enthusiast" />
+# Building useful things with data.
 
-**BA (Hons) IT | University of Derby · Data Analyst · Cybersecurity Enthusiast**
-Turning data into stories. Building things. Breaking (and fixing) Linux boxes.
+**Andrea Costa · Data Analyst & Automation Builder**
 
-<br>
+BA (Hons) IT · University of Derby
 
-<a href="https://costa911.github.io/costa911">
-  <img src="https://img.shields.io/badge/🌆_VIEW_FULL_PROFILE-0a0014?style=for-the-badge&logoColor=ff2d78" />
-</a>
+I turn messy data into clearer decisions and build practical tools that make everyday work easier.
 
-<br><br>
-
-<a href="https://www.linkedin.com/in/andrea-costa-98a2b554/">
-  <img src="https://img.shields.io/badge/LinkedIn-0a0014?style=for-the-badge&logo=linkedin&logoColor=00e5ff" />
-</a>
+[![View portfolio](https://img.shields.io/badge/VIEW_PORTFOLIO-0a0814?style=for-the-badge&labelColor=0a0814&color=64edff)](https://costa911.github.io/costa911/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0a0814?style=for-the-badge&labelColor=0a0814&color=ff72b0)](https://www.linkedin.com/in/andrea-costa-98a2b554/)
 
 </div>
+
+## Featured projects
+
+### 01 · [The Kitchen Loop](https://github.com/costa911/the-kitchen-loop)
+
+A recipe management and meal planning app bringing recipes, cooking logs, dinner plans and shopping lists into one place.
+
+**HTML · CSS · JavaScript**
+
+### 02 · [F1 Analysis](https://github.com/costa911/f1-analysis)
+
+Who performed best without winning the championship? An analysis of Formula 1 non-champions from 2005–2025 using the Jolpica F1 API, with a public notebook, charts and supporting datasets.
+
+**Python · pandas · Jupyter**
+
+## Toolkit
+
+- **Data & analytics:** Python, SQL, Redshift, Looker, Excel, Chart.js
+- **Web & automation:** HTML, CSS, JavaScript, GitHub Actions, Bash
+- **Systems & learning:** Linux, Fedora, cybersecurity learning with TryHackMe
+
+---
+
+Snow Crash-inspired neon. Practical projects. Data, code and curiosity.
+
+[Explore the full portfolio →](https://costa911.github.io/costa911/)
