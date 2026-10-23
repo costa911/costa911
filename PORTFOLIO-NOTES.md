@@ -5,10 +5,11 @@ Static GitHub Pages site: open `index.html` locally; no build step or JavaScript
 ## Content evidence — reviewed 21 October 2026
 
 - Existing portfolio and README: name, University of Derby IT graduate, data stack, interests and LinkedIn address.
-- https://github.com/costa911/the-kitchen-loop — confirmed public. Repository description supports recipe storage, cooking logs, dinner planning, shopping lists and vanilla HTML/CSS/JavaScript. No private backend or authentication details are included.
+- https://github.com/costa911/kitchen-loop-community — confirmed public. Repository description supports a self-hosted recipe book, cooking logs, dinner planning, shopping lists, local JSON storage and documented setup paths for Linux, macOS and Windows through Docker Desktop or WSL2. No private backend, accounts or employer data are included.
 - https://github.com/costa911/f1-analysis — confirmed public. README supports the 2005–2025 non-champion analysis, Jolpica API source, comparison metrics, Python/pandas/Jupyter stack, charts and datasets. Featured as project 02 after The Kitchen Loop; no ranking or statistical validity claims added.
+- https://github.com/costa911/ht-opportunity-scanner-portfolio — confirmed public. README supports a Python football betting-exchange opportunity scanner using Betfair, odds-based filters, Telegram alerts and a curated portfolio snapshot. Featured as project 03; keep the wording descriptive and avoid presenting it as financial advice or a recommendation.
 
-Only these two evidenced projects are featured. Public repository descriptions can age; recheck them before publishing. No employer data, project metrics, credentials, internal URLs or private repository links were added.
+Only these three evidenced projects are featured. Public repository descriptions can age; recheck them before publishing. No employer data, project metrics, credentials, internal URLs or private repository links were added.
 
 ## Design and accessibility
 
