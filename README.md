@@ -4,7 +4,7 @@
 
 **Andrea Costa · Data Analyst & Automation Builder**
 
-BA (Hons) IT · University of Derby
+BSc (Hons) Computing and Information Technologies, First Class - University of Derby
 
 I turn messy data into clearer decisions and build practical tools that make everyday work easier.
 
